@@ -1,297 +1,158 @@
+@charset "UTF-8";
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  font-family: "Raleway", sans-serif, 微軟正黑體;
+  text-decoration: none;
 }
 
-img {
-  max-width: 100%;
-}
-/* 
+/* html,
 body {
-  background-color: #e6e6e6;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  width: 100%;
+  height: auto;
+  padding: 40px;
+  margin: 0;
+  background-color: #e0e0e2;
+  box-sizing: border-box;
+  overflow-x: hidden;
   display: flex;
-  height: 100vh;
-  width: 100vw;
-  font-family: "Montserrat";
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  letter-spacing: 1px;
+  line-height: 22px;
+  padding: 0;
+  margin: 0;
+  color: #666;
+  font-size: 10px;
 } */
 
-.containerx {
-  width: 600px;
-  max-width: 100%;
+.namecard {
+  width: 350px;
+  height: 180px;
+  padding: 25px;
   margin: auto;
+  position: relative;
+  background: linear-gradient(#f2f2f2, #eee);
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  transition: all 0.5s;
 }
 
-.display {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.display .display-item {
-  flex-grow: 1;
-  padding: 15px;
-}
-
-.display .display-item > span {
-  display: block;
-  text-align: center;
-  padding: 15px;
-  font-size: 2em;
-}
-
-.business-card,
-.flippable-business-card {
-  width: 400px;
-  height: 200px;
-  max-width: 100%;
-  border-radius: 4px;
-  margin: 0 auto;
-}
-
-.business-card {
-  display: flex;
-  flex-direction: column;
-  background: linear-gradient(
-    135deg,
-    #fff 0%,
-    #fff 50%,
-    rgba(219, 180, 4, 0.4) 50.5%,
-    rgba(230, 196, 4, 0.6) 100%
-  );
-  color: rgba(0, 0, 0, 0.8);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-}
-
-.business-card .profile {
-  display: flex;
-  flex-basis: 150px;
-  width: 100%;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  padding: 15px;
-}
-
-.business-card .profile .profile-image {
-  /* background-image: url(https://images.unsplash.com/photo-1507120878965-54b2d3939100?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&s=57f3676a7820564424855d5e5c6b09e7); */
-  background-image: url("../img/diki.jpg");
-  background-position: center;
-  background-size: cover;
-  width: 120px;
-  height: 120px;
-  border-radius: 100%;
-}
-
-.business-card .profile .profile-logo {
-  background-image: url("../img/logo.png");
-  padding-left: 150px;
-  background-position: center;
-  background-size: cover;
-  width: 120px;
-  height: 120px;
-}
-
-.business-card .profile .profile-title {
-  padding-left: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-.business-card .profile .profile-title h2 {
-  font-size: 1.4em;
-}
-
-.business-card .info {
-  display: flex;
-  flex-grow: 1;
-}
-
-.business-card .info .info-contact {
-  padding: 15px;
-  display: flex;
-  flex-shrink: 1;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-.business-card .info .info-contact a {
-  color: rgba(0, 0, 0, 0.8);
-}
-
-.business-card .info .info-contact i {
-  font-size: 1.2em;
-  width: 25px;
-}
-
-.business-card .info .info-bio {
-  display: flex;
-  flex-grow: 1;
-  flex-basis: 50%;
-  flex-direction: column;
-  justify-content: space-around;
-  padding: 15px;
-  text-align: center;
-}
-
-.flippable-business-card {
-  perspective: 1000px;
-}
-
-.flippable-business-card .front,
-.flippable-business-card .back {
-  width: 100%;
-  height: 100%;
+.namecard.front:after {
+  content: "";
   position: absolute;
+  display: block;
   top: 0;
   left: 0;
-  transition: all 0.5s ease-in-out;
-  transform-style: preserve-3d;
-  background-color: white;
-  border-radius: 4px;
-  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    #36b9c1,
+    rgba(116, 211, 216, 0) 50%,
+    rgba(255, 255, 255, 0.5)
+  );
+  transform: translate3d(0, 0, 0);
 }
 
-.flippable-business-card .front {
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+.namecard.front:hover .wave.left {
+  left: 80px;
 }
 
-.flippable-business-card .front .front-top {
-  height: 150px;
-  background-image: url(https://images.unsplash.com/photo-1421789665209-c9b2a435e3dc?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&s=b0aa3fbba9c018e93499effa49dd8e83);
-  background-size: cover;
-  background-position: center;
-  position: relative;
+.namecard.back {
+  letter-spacing: 1px;
+  line-height: unset;
+  color: #383d3b;
+  font-size: 10px;
 }
 
-.flippable-business-card .front .front-top h2,
-.flippable-business-card .front .front-top h3 {
-  display: block;
-  padding: 15px;
-  text-align: center;
-  color: white;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4), -1px -1px 1px rgba(0, 0, 0, 0.4);
+.namecard.back .name {
+  font-size: 30px;
+  font-weight: bold;
+  margin-left: -3px;
 }
 
-.flippable-business-card .front .front-top .profile-image {
+.namecard.back .position {
+  color: #36b9c1;
+}
+
+/* .namecard.back .intro {
+  padding-right: 150px;
+} */
+
+.namecard.back:hover .wave.right {
+  left: 80px;
+}
+
+.namecard:hover {
+  transform: translate3d(-5px, -5px, 0);
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
+}
+
+.wave {
+  width: 700px;
+  height: 700px;
+  opacity: 0.4;
   position: absolute;
-  height: 120px;
-  width: 120px;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%) translateY(50%) rotate(45deg);
-  border-radius: 4px;
-  overflow: hidden;
-  border: 4px solid white;
+  left: 0;
+  background: #36b9c1;
+  border-radius: 40%;
+  transform-origin: 50% 48%;
+  transition: left 2s;
+  animation: drift 3000ms infinite linear;
 }
 
-.flippable-business-card .front .front-top .profile-image:before {
-  content: "";
-  width: 140%;
-  height: 140%;
+.wave.-three {
+  animation: drift 3500ms infinite linear;
+}
+
+.wave.-two {
+  animation: drift 5000ms infinite linear;
+  background-color: yellow;
+  opacity: 0.1;
+}
+
+.wave.left {
+  margin-top: -50px;
+  margin-left: -400px;
+}
+
+.wave.right {
+  margin-top: -250px;
+  margin-left: 270px;
+}
+
+.title {
   position: absolute;
-  transform: rotate(-45deg);
-  top: -20%;
-  left: -20%;
-  background-image: url(https://images.unsplash.com/photo-1498529605908-f357a9af7bf5?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&s=4a38e7f0743e48e6ae32b23d36aa6ff7);
-  background-size: cover;
-  background-position: center;
+  top: 0;
+  left: 10%;
+  width: 100%;
+  z-index: 1;
+  line-height: 230px;
+  transform: translate3d(0, 0, 0);
+  color: #f2f2f2;
+  text-transform: uppercase;
+  letter-spacing: 12px;
+  font-size: 30px;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  text-indent: 0.3em;
 }
 
-.flippable-business-card .front .front-bottom {
-  height: 150px;
-  display: flex;
-  color: rgba(255, 255, 255, 0.8);
-  background-color: darkslategray;
-}
+@keyframes drift {
+  from {
+    transform: rotate(0deg);
+  }
 
-.flippable-business-card .front .front-bottom > div {
-  flex-grow: 1;
-  flex-basis: 50%;
-  padding-top: 30px;
-  padding-bottom: 15px;
-}
-
-.flippable-business-card .front .front-bottom > div:first-child {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  padding-right: 40px;
-  padding-left: 15px;
-}
-
-.flippable-business-card .front .front-bottom > div:first-child h2 {
-  font-size: 1.4em;
-}
-
-.flippable-business-card .front .front-bottom > div:last-child {
-  display: flex;
-  justify-content: space-around;
-  padding-left: 40px;
-  padding-right: 15px;
-}
-
-.flippable-business-card .front .front-bottom > div:last-child a {
-  color: rgba(0, 0, 0, 0.8);
-}
-
-.flippable-business-card .front .front-bottom > div:last-child i {
-  font-size: 1.2em;
-  width: 25px;
-}
-
-.flippable-business-card .front .front-bottom > div:last-child > div {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-.flippable-business-card .back {
-  transform: rotateX(180deg);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  box-shadow: none;
-  background-color: darkslategray;
-  color: rgba(255, 255, 255, 0.8);
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-}
-
-.flippable-business-card .back .title {
-  height: 75px;
-  padding: 15px;
-}
-
-.flippable-business-card .back .bio {
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 15px;
-  height: 150px;
-  display: flex;
-  flex-direction: column;
-  font-style: italic;
-  justify-content: space-around;
-}
-
-.flippable-business-card .back .social {
-  height: 75px;
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-.flippable-business-card .back .social .sms {
-  display: flex;
-  justify-content: space-around;
-  font-size: 2em;
-}
-
-.flippable-business-card:hover .back {
-  transform: rotateX(360deg);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-}
-
-.flippable-business-card:hover .front {
-  transform: rotateX(180deg);
-  box-shadow: none;
+  from {
+    transform: rotate(360deg);
+  }
 }
